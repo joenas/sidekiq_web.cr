@@ -1,0 +1,26 @@
+name: sidekiq_web
+name: njus
+version: 0.1.0
+
+authors:
+  - joenas <jon@jonnev.se>
+
+targets:
+  sidekiq_web:
+    main: src/sidekiq_web.cr
+
+crystal: 0.26.1
+
+dependencies:
+  dotenv:
+    github: gdotdesign/cr-dotenv
+  kemal:
+    github: kemalcr/kemal
+  kemal-basic-auth:
+    github: kemalcr/kemal-basic-auth
+  sidekiq:
+    github: mperham/sidekiq.cr
+    branch: master
+
+license: MIT
+

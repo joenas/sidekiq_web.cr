@@ -1,0 +1,12 @@
+{
+  "name": "Njus in Crystal",
+  "description": "Fetch RSS feeds, check shares on FB and the emit",
+  "keywords": [
+    "dokku",
+    "crystal"
+  ],
+  "scripts": {
+    "dokku": {
+    }
+  }
+}
