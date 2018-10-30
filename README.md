@@ -1,22 +1,47 @@
 # sidekiq_web
 
-TODO: Write a description here
+Simple repo to deploy the WebUI for [crystal.cr](https://github.com/mperham/sidekiq.cr).
 
-## Installation
-
-TODO: Write installation instructions here
+Works great on [dokku](https://github.com/dokku/dokku) (and probably Heroku, haven't tried).
 
 ## Usage
 
-TODO: Write usage instructions here
+### Local
 
-## Development
+```bash
+cp .env.example .env # and edit
+shards
+crystal src/sidekiq_web.cr
+# or if you have Foreman installed
+foreman start -f Procfile.dev
+```
 
-TODO: Write development instructions here
+### Dokku
+
+First create your app on the server
+```bash
+dokku apps:create sidekiq-web
+dokku redis:link [your-redis] sidekiq-web
+dokku config:set njus-sidekiq-web KEMAL_ENV=production \
+  REDIS_PROVIDER=REDIS_URL \
+  SECRET_TOKEN=sometoken \
+  SIDEKIQ_USER=admin \
+  SIDEKIQ_PASSWORD=CHANGEME
+# ... add Let's Encrypt, domains and whatnot
+```
+
+Then deploy...
+
+```bash
+git remote add dokku dokku@yourserver:sidekiq-web
+git push dokku master
+```
+
+and the `.buildpacks` and `Procfile` will take care of the rest!
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/sidekiq_web/fork>)
+1. Fork it (<https://github.com/joenas/sidekiq_web/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -24,4 +49,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [your-github-user](https://github.com/your-github-user) joenas - creator, maintainer
+- [joenas](https://github.com/joenas) joenas - creator, maintainer

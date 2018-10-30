@@ -1,9 +1,10 @@
 {
-  "name": "Njus in Crystal",
-  "description": "Fetch RSS feeds, check shares on FB and the emit",
+  "name": "Sidekiq Web",
+  "description": "WebUI for Sidekiq in crystal",
   "keywords": [
     "dokku",
-    "crystal"
+    "crystal",
+    "sidekiq"
   ],
   "scripts": {
     "dokku": {
