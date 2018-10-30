@@ -1,6 +1,6 @@
 # sidekiq_web
 
-Simple repo to deploy the WebUI for [crystal.cr](https://github.com/mperham/sidekiq.cr).
+Simple repo to deploy the WebUI for [sidekiq.cr](https://github.com/mperham/sidekiq.cr).
 
 Works great on [dokku](https://github.com/dokku/dokku) (and probably Heroku, haven't tried).
 
